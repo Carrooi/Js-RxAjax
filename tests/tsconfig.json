@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"removeComments": true,
+		"noEmitHelpers": false,
+		"sourceMap": true
+	},
+	"files": [
+		"../typings/browser.d.ts"
+	],
+	"filesGlob": [
+		"../src/**/*.ts",
+		"./tests/**/*.ts"
+	],
+	"exclude": [
+		"../node_modules"
+	],
+	"compileOnSave": false,
+	"buildOnSave": false
+}

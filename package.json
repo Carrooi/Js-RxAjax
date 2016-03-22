@@ -1,0 +1,35 @@
+{
+	"name": "rx-ajax",
+	"description": "Simple ajax reactive library.",
+	"version": "0.0.1",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:Carrooi/Js-RxAjax.git"
+	},
+	"author": {
+		"name": "David Kudera",
+		"email": "kudera.d@gmail.com"
+	},
+	"dependencies": {
+		"rxjs": "5.0.0-beta.2"
+	},
+	"devDependencies": {
+		"gulp": "~3.9.1",
+		"gulp-util": "~3.0.7",
+		"webpack": "~1.12.13",
+		"ts-loader": "~0.8.1",
+		"typescript": "~1.7.5",
+		"mocha": "~2.4.5",
+		"gulp-mocha-phantomjs": "~0.11.0",
+		"mirror-server": "~0.0.6",
+		"chai": "~3.5.0",
+		"typings": "~0.6.8"
+	},
+	"scripts": {
+		"compile-tests": "gulp compile-tests",
+		"typings-tests": "typings install",
+		"test-server": "mirror-server --port 3000",
+		"test": "npm run compile-tests && gulp tests"
+	}
+}

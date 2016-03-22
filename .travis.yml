@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "0.12"
+  - "4.1"
+  - "iojs"
+
+before_script:
+  - npm run typings-tests
+  - |
+    npm run test-server &
+    SERVER_PID=$!
+
+after_script:
+  kill -9 $SERVER_PID
