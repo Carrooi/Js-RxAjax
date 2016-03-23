@@ -22,7 +22,7 @@
 		"typescript": "~1.7.5",
 		"mocha": "~2.4.5",
 		"gulp-mocha-phantomjs": "~0.11.0",
-		"mirror-server": "~0.0.6",
+		"mirror-server": "~0.0.7",
 		"chai": "~3.5.0",
 		"typings": "~0.6.8"
 	},

@@ -81,7 +81,7 @@ describe('#Backends/XhrBackend', () => {
 
 			xhr.fetch(request, (err: Error, response: Response) => {
 				expect(err).to.be.equal(null);
-				expect(JSON.parse(response.getHeader('Mirror-Files'))).to.be.eql([		// Mirror-Files header is from mirror-server
+				expect(JSON.parse(response.getHeader('X-Mirror-Files'))).to.be.eql([		// Mirror-Files header is from mirror-server
 					{
 						name: 'readme',
 						file: 'readme.md',
