@@ -16,7 +16,7 @@ export class Serializer
 			MultipartFormSerializer.serialize(boundary, data, files, (data) => {
 				cb({
 					headers: {
-						'Content-type': 'multipart/form-data; boundary=' + boundary,
+						'Content-Type': 'multipart/form-data; boundary=' + boundary,
 					},
 					url: url,
 					data: data,
@@ -29,7 +29,7 @@ export class Serializer
 			data = DefaultSerializer.serialize(data);
 
 			if (method === 'POST') {
-				headers['Content-type'] = 'application/x-www-form-urlencoded';
+				headers['Content-Type'] = 'application/x-www-form-urlencoded';
 			} else {
 				url = Helpers.appendUrlParameters(url, data);
 				data = null;
