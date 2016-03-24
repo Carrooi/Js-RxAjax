@@ -34,4 +34,13 @@ describe('#Utils/Helpers', () => {
 
 	});
 
+	describe('toASCII()', () => {
+
+		it('should transform non ASCII chars to ASCII', () => {
+			expect(Helpers.toASCII('ŁÁŘŠÓÑ')).to.be.equal('LARSON');
+			expect(Helpers.toASCII('Łąřśøń')).to.be.equal('Larson');
+		});
+
+	});
+
 });

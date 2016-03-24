@@ -167,3 +167,7 @@ import {Snippets} from 'rx-ajax/extensions';
 
 http.addExtension(new Snippets);
 ```
+
+## Known limitations
+
+* All non ASCII chars (eg. letters with diacritics) in file names is converted to ASCII chars before uploading.

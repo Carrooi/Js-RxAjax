@@ -74,7 +74,7 @@ describe('#Backends/XhrBackend', () => {
 					file: new Blob(['testing readme'], {type: 'text/plain'}),
 				},
 				installation: {
-					filename: 'install.md',
+					filename: 'ĚšČřŽýÁíÉ.md',
 					file: new Blob(['yo'], {type: 'text/plain'}),
 				}
 			}});
@@ -88,7 +88,7 @@ describe('#Backends/XhrBackend', () => {
 					},
 					{
 						name: 'installation',
-						file: 'install.md',
+						file: 'EsCrZyAiE.md',
 					}
 				]);
 				done();

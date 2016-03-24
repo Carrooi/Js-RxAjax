@@ -164,4 +164,46 @@ export class Helpers
 		}
 	}
 
+
+	/**
+	 * @see http://stackoverflow.com/a/32756572
+	 */
+	public static toASCII(str: string): string
+	{
+		let diacritics = {
+			a: 'ÀÁÂÃÄÅàáâãäåĀāąĄ',
+			c: 'ÇçćĆčČ',
+			d: 'đĐďĎ',
+			e: 'ÈÉÊËèéêëěĚĒēęĘ',
+			i: 'ÌÍÎÏìíîïĪī',
+			l: 'łŁ',
+			n: 'ÑñňŇńŃ',
+			o: 'ÒÓÔÕÕÖØòóôõöøŌō',
+			r: 'řŘ',
+			s: 'ŠšśŚ',
+			t: 'ťŤ',
+			u: 'ÙÚÛÜùúûüůŮŪū',
+			y: 'ŸÿýÝ',
+			z: 'ŽžżŻźŹ',
+		};
+
+		for (var toLetter in diacritics) {
+			if (diacritics.hasOwnProperty(toLetter)) {
+				for (let i = 0; i < diacritics[toLetter].length; i++) {
+					let fromLetter = diacritics[toLetter][i];
+
+					if (str.indexOf(fromLetter) < 0) {
+						continue;
+					}
+
+					let toCaseLetter = fromLetter === fromLetter.toUpperCase() ? toLetter.toUpperCase() : toLetter;
+
+					str = str.replace(new RegExp(fromLetter, 'g'), toCaseLetter);
+				}
+			}
+		}
+
+		return str;
+	}
+
 }

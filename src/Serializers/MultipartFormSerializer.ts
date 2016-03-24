@@ -19,7 +19,7 @@ export class MultipartFormSerializer
 			for (let name in loadedFiles) {
 				if (loadedFiles.hasOwnProperty(name)) {
 					result.push(
-						"Content-Disposition: form-data; name=\"" + name + "\"; filename=\"" + loadedFiles[name].filename + "\"\r\n" +
+						"Content-Disposition: form-data; name=\"" + name + "\"; filename=\"" + Helpers.toASCII(loadedFiles[name].filename) + "\"\r\n" +
 						"Content-Type: " + loadedFiles[name].type + "\r\n\r\n" +
 						loadedFiles[name].content + "\r\n"
 					);
