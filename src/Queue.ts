@@ -42,12 +42,12 @@ export class Queue
 
 	private run(): void
 	{
-		if (this.running) {
+		if (!this.requests.length) {
+			this.running = false;
 			return;
 		}
 
-		if (!this.requests.length) {
-			this.running = false;
+		if (this.running) {
 			return;
 		}
 
