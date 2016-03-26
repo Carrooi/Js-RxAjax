@@ -40,6 +40,13 @@ export class Serializer
 				url: url,
 				data: data,
 			});
+
+		} else {
+			cb({
+				headers: {},
+				url: url,
+				data: null,
+			});
 		}
 	}
 
