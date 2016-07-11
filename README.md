@@ -50,6 +50,17 @@ http.files('/api', filesList, data, options).subscribe((response) => {});
 By default all your requests are called from queue one by one, so there is always just one request running (or zero).
 Inspiration is from this article [http://blog.alexmaccaw.com/queuing-ajax-requests](http://blog.alexmaccaw.com/queuing-ajax-requests).
 
+You can disable this feature with `ImmediateQueue`:
+
+```js
+import {Http} from 'rx-ajax';
+import {ImmediateQueue} from 'rx-ajax/queue';
+
+let http = new Http({
+	queue: new ImmediateQueue
+});
+```
+
 ## Events
 
 ```js

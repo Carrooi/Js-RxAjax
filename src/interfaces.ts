@@ -1,7 +1,7 @@
 import {Subject} from 'rxjs/Rx';
 import {Request} from './Request';
 import {IBackend} from './Backends/IBackend';
-import {Queue} from './Queue';
+import {IQueue} from './Queues/IQueue';
 
 
 export declare interface HeadersList
@@ -13,7 +13,7 @@ export declare interface HeadersList
 export declare interface HttpOptions
 {
 	backend?: IBackend,
-	queue?: Queue,
+	queue?: IQueue,
 }
 
 

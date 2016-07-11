@@ -1,9 +1,10 @@
-import {Request} from './Request';
-import {Helpers} from './Utils/Helpers';
-import {QueueItem} from './interfaces';
+import {IQueue} from './IQueue';
+import {Request} from '../Request';
+import {Helpers} from '../Utils/Helpers';
+import {QueueItem} from '../interfaces';
 
 
-export class Queue
+export class Queue implements IQueue
 {
 
 
@@ -35,12 +36,10 @@ export class Queue
 			request: request,
 			fn: fn,
 		});
-
-		this.run();
 	}
 
 
-	private run(): void
+	public run(): void
 	{
 		if (!this.requests.length) {
 			this.running = false;

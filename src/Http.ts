@@ -4,7 +4,8 @@ import {Request} from './Request';
 import {Response} from './Response';
 import {IBackend} from './Backends/IBackend';
 import {XhrBackend} from './Backends/XhrBackend';
-import {Queue} from './Queue';
+import {IQueue} from './Queues/IQueue';
+import {Queue} from './Queues/Queue';
 import {EventEmitter} from './Utils/EventEmitter';
 import {AbstractExtension} from './Extensions/AbstractExtension';
 import {HttpOptions, RequestOptions, FilesList} from './interfaces';
@@ -16,7 +17,7 @@ export class Http extends EventEmitter
 
 	private backend: IBackend;
 
-	private queue: Queue;
+	private queue: IQueue;
 
 	private extensions: Array<AbstractExtension> = [];
 
@@ -65,6 +66,8 @@ export class Http extends EventEmitter
 					}
 				});
 			});
+
+			this.queue.run();
 
 			this.emit('afterSend', request);
 
