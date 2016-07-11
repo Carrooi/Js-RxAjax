@@ -39,6 +39,12 @@ export class Queue implements IQueue
 	}
 
 
+	public isRunning(): boolean
+	{
+		return this.running === true;
+	}
+
+
 	public run(): void
 	{
 		if (!this.requests.length) {
@@ -46,16 +52,11 @@ export class Queue implements IQueue
 			return;
 		}
 
-		if (this.running) {
-			return;
-		}
-
 		this.running = true;
 
-		let fn = this.requests[0].fn;
+		let item = <QueueItem>this.requests.shift();
 
-		fn(() => {
-			this.requests.shift();
+		item.fn(() => {
 			this.run();
 		});
 	}

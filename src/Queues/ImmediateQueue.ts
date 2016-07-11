@@ -12,6 +12,12 @@ export class ImmediateQueue implements IQueue
 	}
 
 
+	public isRunning(): boolean
+	{
+		return false;
+	}
+
+
 	public run(): void
 	{
 

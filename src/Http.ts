@@ -47,7 +47,7 @@ export class Http extends EventEmitter
 
 			this.emit('send', request);
 
-			this.queue.append(request, (done) => {
+			this.queue.append(request, (done?: () => void) => {
 				stop = this.backend.fetch(request, (err: Error, response: Response) => {
 					if (done) {
 						done();
@@ -67,7 +67,9 @@ export class Http extends EventEmitter
 				});
 			});
 
-			this.queue.run();
+			if (!this.queue.isRunning()) {
+				this.queue.run();
+			}
 
 			this.emit('afterSend', request);
 
