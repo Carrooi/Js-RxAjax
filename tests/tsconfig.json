@@ -7,7 +7,7 @@
 		"sourceMap": true
 	},
 	"files": [
-		"../typings/browser.d.ts"
+		"../typings/index.d.ts"
 	],
 	"filesGlob": [
 		"../src/**/*.ts",
