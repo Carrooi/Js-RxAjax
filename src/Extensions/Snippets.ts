@@ -10,7 +10,7 @@ export class Snippets extends AbstractExtension
 	public static APPEND_ATTRIBUTE_NAME = 'data-append';
 
 
-	public processed: Subject<Response> = new Subject;
+	public processed: Subject<any> = new Subject;
 
 
 	public success(response: Response): void

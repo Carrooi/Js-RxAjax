@@ -19,7 +19,7 @@ export class Response
 	private _json: any = null;
 
 
-	public progress: Subject<ProgressEvent> = new Subject;
+	public progress: Subject<any> = new Subject;
 
 
 	public json(): any

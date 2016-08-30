@@ -22,13 +22,13 @@ export class Http
 	private extensions: Array<AbstractExtension> = [];
 
 
-	public send: Subject<Request> = new Subject;
+	public send: Subject<any> = new Subject;
 
-	public afterSend: Subject<Request> = new Subject;
+	public afterSend: Subject<any> = new Subject;
 
-	public success: Subject<Response> = new Subject;
+	public success: Subject<any> = new Subject;
 
-	public error: Subject<Error> = new Subject;
+	public error: Subject<any> = new Subject;
 
 	public connected: Subject<any> = new Subject;
 

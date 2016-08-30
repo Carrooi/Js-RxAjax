@@ -12,19 +12,19 @@
 		"email": "kudera.d@gmail.com"
 	},
 	"dependencies": {
-		"rxjs": "5.0.0-beta.2"
+		"rxjs": "5.0.0-beta.11"
 	},
 	"devDependencies": {
 		"gulp": "~3.9.1",
 		"gulp-util": "~3.0.7",
-		"webpack": "~1.12.13",
-		"ts-loader": "~0.8.1",
-		"typescript": "~1.7.5",
-		"mocha": "~2.4.5",
+		"webpack": "~1.13.2",
+		"ts-loader": "~0.8.2",
+		"typescript": "~1.8.10",
+		"mocha": "~3.0.2",
 		"gulp-mocha-phantomjs": "~0.11.0",
 		"mirror-server": "~0.0.7",
 		"chai": "~3.5.0",
-		"typings": "~0.6.8"
+		"typings": "~1.3.3"
 	},
 	"scripts": {
 		"compile-tests": "gulp compile-tests",
