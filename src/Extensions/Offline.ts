@@ -56,12 +56,12 @@ export class Offline extends AbstractExtension
 				if ((response.status >= 200 && response.status <= 300) || response.status === 304) {
 					if (this.offline) {
 						this.offline = false;
-						this.http.emit('connected', null);
+						this.http.connected.next(null);
 					}
 
 				} else if (!this.offline) {
 					this.offline = true;
-					this.http.emit('disconnected', null);
+					this.http.disconnected.next(null);
 				}
 
 				this.check();
@@ -69,7 +69,7 @@ export class Offline extends AbstractExtension
 			}, () => {
 				if (!this.offline) {
 					this.offline = true;
-					this.http.emit('disconnected', null);
+					this.http.disconnected.next(null);
 				}
 
 				this.check();

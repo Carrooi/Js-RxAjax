@@ -39,7 +39,7 @@ describe('#Extensions/Snippets', () => {
 	it('should update snippet', (done) => {
 		expect(el.innerHTML).to.be.equal('before');
 
-		snippets.listen('processed', () => {
+		snippets.processed.subscribe(() => {
 			expect(el.innerHTML).to.be.equal('after');
 			done();
 		});
@@ -54,7 +54,7 @@ describe('#Extensions/Snippets', () => {
 
 		el.setAttribute('data-append', 'data-append');
 
-		snippets.listen('processed', () => {
+		snippets.processed.subscribe(() => {
 			expect(el.innerHTML).to.be.equal('before-after');
 			done();
 		});

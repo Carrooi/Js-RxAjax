@@ -47,7 +47,7 @@ describe('#Extensions/Links', () => {
 	it('should send request on click', (done) => {
 		xhr.receive('1');
 
-		http.listen('success', (response: Response) => {
+		http.success.subscribe((response: Response) => {
 			expect(response.json()).to.be.equal(1);
 			done();
 		});

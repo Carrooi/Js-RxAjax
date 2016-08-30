@@ -1,17 +1,17 @@
 import {Observable} from 'rxjs/Observable';
 import {Subscriber} from 'rxjs/Subscriber';
+import {Subject} from 'rxjs/Subject';
 import {Request} from './Request';
 import {Response} from './Response';
 import {IBackend} from './Backends/IBackend';
 import {XhrBackend} from './Backends/XhrBackend';
 import {IQueue} from './Queues/IQueue';
 import {Queue} from './Queues/Queue';
-import {EventEmitter} from './Utils/EventEmitter';
 import {AbstractExtension} from './Extensions/AbstractExtension';
 import {HttpOptions, RequestOptions, FilesList} from './interfaces';
 
 
-export class Http extends EventEmitter
+export class Http
 {
 
 
@@ -22,10 +22,21 @@ export class Http extends EventEmitter
 	private extensions: Array<AbstractExtension> = [];
 
 
+	public send: Subject<Request> = new Subject;
+
+	public afterSend: Subject<Request> = new Subject;
+
+	public success: Subject<Response> = new Subject;
+
+	public error: Subject<Error> = new Subject;
+
+	public connected: Subject<any> = new Subject;
+
+	public disconnected: Subject<any> = new Subject;
+
+
 	constructor(options: HttpOptions = {})
 	{
-		super();
-
 		if (!options.backend) {
 			options.backend = new XhrBackend;
 		}
@@ -110,7 +121,7 @@ export class Http extends EventEmitter
 
 	public emit(name: string, data: any): void
 	{
-		super.emit(name, data);
+		(<Subject<any>>this[name]).next(data);
 
 		for (let i = 0; i < this.extensions.length; i++) {
 			if (typeof this.extensions[i][name] !== 'undefined') {

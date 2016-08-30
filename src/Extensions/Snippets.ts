@@ -1,3 +1,4 @@
+import {Subject} from 'rxjs/Subject';
 import {AbstractExtension} from './AbstractExtension';
 import {Response} from '../Response';
 
@@ -7,6 +8,9 @@ export class Snippets extends AbstractExtension
 
 
 	public static APPEND_ATTRIBUTE_NAME = 'data-append';
+
+
+	public processed: Subject<Response> = new Subject;
 
 
 	public success(response: Response): void
@@ -31,7 +35,7 @@ export class Snippets extends AbstractExtension
 			}
 
 			if (!empty) {
-				this.emit('processed', response);
+				this.processed.next(response);
 			}
 		}
 	}

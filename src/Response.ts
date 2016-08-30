@@ -1,8 +1,8 @@
+import {Subject} from 'rxjs/Subject';
 import {Helpers} from './Utils/Helpers';
-import {EventEmitter} from './Utils/EventEmitter';
 
 
-export class Response extends EventEmitter
+export class Response
 {
 
 
@@ -17,6 +17,9 @@ export class Response extends EventEmitter
 	public headers: any = null;
 
 	private _json: any = null;
+
+
+	public progress: Subject<ProgressEvent> = new Subject;
 
 
 	public json(): any

@@ -1,10 +1,9 @@
 import {Http} from '../Http';
 import {Request} from '../Request';
 import {Response} from '../Response';
-import {EventEmitter} from '../Utils/EventEmitter';
 
 
-export abstract class AbstractExtension extends EventEmitter
+export abstract class AbstractExtension
 {
 
 

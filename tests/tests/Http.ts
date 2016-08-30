@@ -23,7 +23,12 @@ describe('#Http', () => {
 	});
 
 	afterEach(() => {
-		http.dispose();
+		http.send.unsubscribe();
+		http.afterSend.unsubscribe();
+		http.success.unsubscribe();
+		http.error.unsubscribe();
+		http.connected.unsubscribe();
+		http.disconnected.unsubscribe();
 	});
 
 	describe('request()', () => {
@@ -31,19 +36,19 @@ describe('#Http', () => {
 		it('should call all successful events', (done) => {
 			let called = [];
 
-			http.listen('send', (request: Request) => {
+			http.send.subscribe((request: Request) => {
 				called.push('send');
 
 				expect(request).to.be.an.instanceOf(Request);
 			});
 
-			http.listen('afterSend', (request: Request) => {
+			http.afterSend.subscribe((request: Request) => {
 				called.push('afterSend');
 
 				expect(request).to.be.an.instanceOf(Request);
 			});
 
-			http.listen('success', (response: Response) => {
+			http.success.subscribe((response: Response) => {
 				called.push('success');
 
 				expect(response).to.be.an.instanceOf(Response);
@@ -59,19 +64,19 @@ describe('#Http', () => {
 		it('should call all errored events', (done) => {
 			let called = [];
 
-			http.listen('send', (request: Request) => {
+			http.send.subscribe((request: Request) => {
 				called.push('send');
 
 				expect(request).to.be.an.instanceOf(Request);
 			});
 
-			http.listen('afterSend', (request: Request) => {
+			http.afterSend.subscribe((request: Request) => {
 				called.push('afterSend');
 
 				expect(request).to.be.an.instanceOf(Request);
 			});
 
-			http.listen('error', (err: Error) => {
+			http.error.subscribe((err: Error) => {
 				called.push('error');
 
 				expect(err).to.be.an.instanceOf(Error);

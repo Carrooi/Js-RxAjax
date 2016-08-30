@@ -20,12 +20,14 @@ describe('#Extensions/Offline', () => {
 
 	afterEach(() => {
 		offline.stop();
+		http.connected.unsubscribe();
+		http.disconnected.unsubscribe();
 	});
 
 	it('should call disconnect event', (done) => {
 		xhr.receive();
 
-		http.listen('disconnected', () => {
+		http.disconnected.subscribe(() => {
 			done();
 		});
 
@@ -39,7 +41,7 @@ describe('#Extensions/Offline', () => {
 	it('should call connected event', (done) => {
 		xhr.receive('', {}, 404);
 
-		http.listen('connected', () => {
+		http.connected.subscribe(() => {
 			done();
 		});
 

@@ -64,19 +64,19 @@ let http = new Http({
 ## Events
 
 ```js
-http.listen('send', function(response, request) {
+http.send.subscribe(function(response, request) {
     console.log('In any moment, new http request will be send to server');
 });
 
-http.listen('afterSend', function(response, request) {
+http.afterSend.subscribe(function(response, request) {
     console.log('I just sent some request to server, but there is still no response');
 });
 
-http.listen('success', function(response, request) {
+http.success.subscribe(function(response, request) {
     console.log('I have got response from server without any error :-)');
 });
 
-http.listen('error', function(err, response, request) {
+http.error.subscribe(function(err, response, request) {
     console.log('Sorry, there was some error with this response');
 });
 ```
@@ -149,11 +149,11 @@ import {Offline} from 'rx-ajax/extensions';
 
 http.addExtension(new Offline);
 
-http.listen('connected', function() {
+http.connected.subscribe(function() {
     alert("We're online again :-)");
 });
 
-http.listen('disconnected', function() {
+http.disconnected.subscribe(function() {
     alert('Lost internet connection');
 });
 ```

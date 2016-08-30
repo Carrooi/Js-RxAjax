@@ -36,7 +36,7 @@ export class XhrBackend implements IBackend
 			url = data.url;
 
 			xhr.addEventListener('progress', (e: ProgressEvent) => {
-				response.emit('progress', e);
+				response.progress.next(e);
 			});
 
 			xhr.open(request.method, url, true);
