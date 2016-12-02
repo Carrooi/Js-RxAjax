@@ -6,7 +6,6 @@ node_js:
   - "iojs"
 
 before_script:
-  - npm run typings-tests
   - |
     npm run test-server &
     SERVER_PID=$!

@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs",
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"noEmitHelpers": false,
+		"sourceMap": false,
+		"rootDir": ".",
+		"declaration": true,
+		"lib": ["es5", "es2015.promise", "es2015.iterable", "es2015.collection", "dom", "scripthost"]
+	},
+	"include": [
+		"./**/*.ts"
+	],
+	"exclude": [
+		"./node_modules",
+		"./tests"
+	],
+	"compileOnSave": false,
+	"buildOnSave": false
+}

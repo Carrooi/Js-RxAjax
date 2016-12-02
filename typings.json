@@ -1,8 +1,0 @@
-{
-	"globalDependencies": {
-		"mocha": "github:DefinitelyTyped/DefinitelyTyped/mocha/mocha.d.ts#a361a8ab3c327f208d3f82ad206971d4a63d8c25",
-		"chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#7273c57f5b35de28b77649d9160f557906a95c68",
-		"es6-promise": "github:DefinitelyTyped/DefinitelyTyped/es6-promise/es6-promise.d.ts#71c9d2336c0c802f89d530e07563e00b9ac07792",
-		"es6-collections": "github:DefinitelyTyped/DefinitelyTyped/es6-collections/es6-collections.d.ts#56295f5058cac7ae458540423c50ac2dcf9fc711"
-	}
-}

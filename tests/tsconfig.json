@@ -3,15 +3,23 @@
 		"target": "es5",
 		"module": "commonjs",
 		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
 		"noEmitHelpers": false,
-		"sourceMap": true
+		"sourceMap": true,
+		"baseUrl": "../",
+		"lib": ["es5", "es2015.promise", "es2015.iterable", "es2015.collection", "dom", "scripthost"],
+		"typeRoots": [
+			"../node_modules",
+			"../node_modules/@types"
+		],
+		"types": [
+			"mocha",
+			"chai"
+		]
 	},
-	"files": [
-		"../typings/index.d.ts"
-	],
-	"filesGlob": [
-		"../src/**/*.ts",
-		"./tests/**/*.ts"
+	"include": [
+		"./index.ts"
 	],
 	"exclude": [
 		"../node_modules"
@@ -19,3 +27,4 @@
 	"compileOnSave": false,
 	"buildOnSave": false
 }
+
