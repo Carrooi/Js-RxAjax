@@ -181,4 +181,4 @@ http.addExtension(new Snippets);
 
 ## Known limitations
 
-* All non ASCII chars (eg. letters with diacritics) in file names is converted to ASCII chars before uploading.
+* All non ASCII chars (eg. letters with diacritics) in file names are converted to ASCII chars before uploading.
